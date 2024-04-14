@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tax Calculator</h1>
+        <form id="taxForm">
+            <div class="form-group">
+                <label for="grossIncome">Enter gross annual income:</label>
+                <input type="text" id="grossIncome" placeholder="Enter gross annual income">
+                <span class="error-icon" hidden>!</span>
+                <div class="tooltip" hidden>Enter numbers only</div>
+            </div>
+            <div class="form-group">
+                <label for="extraIncome">Enter extra income:</label>
+                <input type="text" id="extraIncome" placeholder="Enter extra income from other sources">
+                <span class="error-icon" hidden>!</span>
+                <div class="tooltip" hidden>Enter numbers only</div>
+            </div>
+            <div class="form-group">
+                <label for="age">Enter age group:</label>
+                <select id="age">
+                    <option value="">Select age group</option>
+                    <option value="<40">Below 40</option>
+                    <option value="40-59">40 to 59</option>
+                    <option value="60+">60 and above</option>
+                </select>
+                <span class="error-icon" hidden>!</span>
+                <div class="tooltip" hidden>This field is mandatory</div>
+            </div>
+            <div class="form-group">
+                <label for="deductions">Enter total applicable deductions:</label>
+                <input type="text" id="deductions" placeholder="Add total applicable deductions">
+                <span class="error-icon" hidden>!</span>
+                <div class="tooltip" hidden>Enter numbers only</div>
+            </div>
+            <button type="button" onclick="calculateTax()">Submit</button>
+        </form>
+    </div>
+
+    <!-- Modal Structure -->
+<div id="resultModal" class="modal" hidden>
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p class="modal-text"><span id="taxResult">Tax: 0</span></p>
+            <p class="modal-text"><span id="incomeAfterTaxResult">Income After Tax: 0</span></p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-close" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
